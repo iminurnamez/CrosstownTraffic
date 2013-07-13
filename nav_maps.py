@@ -6,10 +6,10 @@ core_nav_map =    {"up": {"up": {"vert": "up",
 								"horiz": "right"},
 						"down": {"vert": "down",
 								"horiz": "stopped"},
-					"downleft": {"vert": "down",
+					"downleft": {"vert": "left",
 								"horiz": "stopped"},
-				   "downright": {"vert": "down",
-								"horiz": "stopped"},
+				   "downright": {"vert": "right",
+								"horiz": "right"},
 						"left": {"vert": "left",
 								"horiz": "stopped"},
 					   "right": {"vert": "right",
@@ -77,8 +77,8 @@ top_nav_map =     {"up": {"up": {"vert": "up",
 								"horiz": "stopped"},
 					"downleft": {"vert": "down",
 								"horiz": "stopped"},
-				   "downright": {"vert": "down",
-								"horiz": "stopped"},
+				   "downright": {"vert": "right",
+								"horiz": "right"},
 						"left": {"vert": "left",
 								"horiz": "stopped"},
 					   "right": {"vert": "right",
@@ -617,21 +617,21 @@ right_nav_map = {"up": {"up": {"vert": "up",
 								"horiz":  "right"}}}
 								
 def choose_nav_map(car):
-	if car.bumper_rect.centerx < 160 and car.bumper_rect.centery < 160:
+	if car.rect.centerx < 160 and car.rect.centery < 160:
 		correct_map = topleft_nav_map
-	elif car.bumper_rect.centerx < 160 and car.bumper_rect.centery > 480:
+	elif car.rect.centerx < 160 and car.rect.centery > 480:
 		correct_map = bottomleft_nav_map			
-	elif car.bumper_rect.centerx > 480 and car.bumper_rect.centery < 160:
+	elif car.rect.centerx > 736 and car.rect.centery < 160:
 		correct_map = topright_nav_map
-	elif car.bumper_rect.centerx > 480 and car.bumper_rect.centery > 480:
+	elif car.rect.centerx > 736 and car.rect.centery > 480:
 		correct_map = bottomright_nav_map
-	elif car.bumper_rect.centerx < 160:
+	elif car.rect.centerx < 160:
 		correct_map = left_nav_map
-	elif car.bumper_rect.centerx > 480:
+	elif car.rect.centerx > 736:
 		correct_map = right_nav_map
-	elif car.bumper_rect.centery < 160:
+	elif car.rect.centery < 160:
 		correct_map = top_nav_map
-	elif car.bumper_rect.centery > 480:
+	elif car.rect.centery > 480:
 		correct_map = bottom_nav_map
 	else:
 		correct_map = core_nav_map
